@@ -29,13 +29,13 @@ for subj in hcp1200_ids:
     Path(subj_path).mkdir(parents=True, exist_ok=True)
 
     try:
-        with open(f"{subj_path}/T2w_acpc_dc.nii.gz","wb") as f:
+        with open(f"{subj_path}/T1w_acpc_dc.nii.gz","wb") as f:
             s3.download_fileobj("hcp-openaccess",f"HCP_1200/{subj}/T1w/T1w_acpc_dc.nii.gz",f)
-        with open(f"{subj_path}/T2w_acpc_dc_restore.nii.gz","wb") as f:
+        with open(f"{subj_path}/T1w_acpc_dc_restore.nii.gz","wb") as f:
             s3.download_fileobj("hcp-openaccess",f"HCP_1200/{subj}/T1w/T1w_acpc_dc_restore.nii.gz",f)
-        with open(f"{subj_path}/T2w_acpc_dc_restore_1.25.nii.gz","wb") as f:
+        with open(f"{subj_path}/T1w_acpc_dc_restore_1.25.nii.gz","wb") as f:
             s3.download_fileobj("hcp-openaccess",f"HCP_1200/{subj}/T1w/T1w_acpc_dc_restore_1.25.nii.gz",f)
-        with open(f"{subj_path}/T2w_acpc_dc_restore_brain.nii.gz","wb") as f:
+        with open(f"{subj_path}/T1w_acpc_dc_restore_brain.nii.gz","wb") as f:
             s3.download_fileobj("hcp-openaccess",f"HCP_1200/{subj}/T1w/T1w_acpc_dc_restore_brain.nii.gz",f)
 
     except botocore.exceptions.ClientError as e:
