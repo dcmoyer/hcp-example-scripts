@@ -12,7 +12,10 @@ with open("data/1200_ids.csv","r") as f:
 with open("data/7T_ids.csv","r") as f:
     hcp7T_ids = [line[0] for line in csv.reader(f)]
 
-s3 = boto3.client('s3')
+#hcp_intersect = [subj for subj in hcp1200_ids if subj in hcp7T_ids]
+
+session = boto3.Session(profile_name="hcp")
+s3 = session.client('s3')
 
 for subj in hcp1200_ids:
     print(subj)
